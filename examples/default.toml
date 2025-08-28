@@ -27,4 +27,4 @@ time = { on = 25, off = 5 }
 name = "basic"
 time = { on = 20, off = 10, freq = 3, then = { on = 10, off = 40 } }
 freq = 3 # This session will run three times
-sound = "~/Music/ambient/skyrim_rain_thunder_10_hours.mp3"
+# sound = "~/Music/ambient/skyrim_rain_thunder_10_hours.mp3"
