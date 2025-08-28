@@ -1,0 +1,30 @@
+
+# Use the systemd service (optional). This is true by default, because
+# it allows the timer to run in the background of the system, and
+# is required by most external plugins. It ensures that the timers 
+# will continue even if the terminal that called closes. Although,
+# if you prefer, you may disable it. Just make sure to keep that terminal open.
+service = true
+
+# Sounds
+start_sound = "assets/start_sound.mp3"
+break_sound = "assets/break_sound.mp3"
+end_sound = "assets/end_sound.mp3"
+
+# Call by running `concentra begin <session name>`
+# For example:
+# ```
+# conenctra begin pomodoro
+# ```
+
+# Sessions
+
+[[session]]
+name = "pomodoro"
+time = { on = 25, off = 5 }
+
+[[session]]
+name = "basic"
+time = { on = 20, off = 10, freq = 3, then = { on = 10, off = 40 } }
+freq = 3 # This session will run three times
+sound = "~/Music/ambient/skyrim_rain_thunder_10_hours.mp3"
