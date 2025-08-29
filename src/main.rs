@@ -11,6 +11,7 @@ You can also just use it as a timer, if you would like
 At it's core, it is super simple.
 */
 mod config;
+mod runner;
 
 use config::*;
 
