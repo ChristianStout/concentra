@@ -6,31 +6,31 @@ use std::io::prelude::*;
 
 #[derive(Deserialize, Debug)]
 pub struct Config {
-    service: bool,
-    start_sound: String,
-    break_sound: String,
-    end_sound: String,
-    session: Option<Vec<Session>>
+    pub service: bool,
+    pub start_sound: String,
+    pub break_sound: String,
+    pub end_sound: String,
+    pub session: Option<Vec<Session>>
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Session {
-    name: String,
-    time: Time,
-    freq: Option<i32>
+    pub name: String,
+    pub time: Time,
+    pub freq: Option<i32>
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Time {
-    on: i32,
-    off: Option<i32>,
-    freq: Option<i32>,
-    then: Option<Box<Time>>
+    pub on: i32,
+    pub off: Option<i32>,
+    pub freq: Option<i32>,
+    pub then: Option<Box<Time>>
 }
 
 pub fn load_config() {
  
-    if let Some(proj_dirs) = ProjectDirs::from("io", "christianstout",  "concentra") {
+    if let Some(proj_dirs) = ProjectDirs::from("github.io", "christianstout",  "concentra") {
         proj_dirs.config_dir();
         // Lin: /home/alice/.config/barapp
         // Win: C:\Users\Alice\AppData\Roaming\Foo Corp\Bar App\config
