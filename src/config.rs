@@ -1,5 +1,5 @@
 use directories::ProjectDirs;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use toml::Table;
 use std::fs::File;
 use std::io::prelude::*;
@@ -28,7 +28,7 @@ pub struct Time {
     pub then: Option<Box<Time>>
 }
 
-pub fn load_config() {
+pub fn load_config() -> Config {
  
     if let Some(proj_dirs) = ProjectDirs::from("github.io", "christianstout",  "concentra") {
         proj_dirs.config_dir();
@@ -50,5 +50,7 @@ pub fn load_config() {
     println!("Hello, world!");
     let config: Config = toml::from_str(&contents)
         .expect("Was unable to serialize the contents of the toml file into the Config struct");
-    dbg!(config);
+    // dbg!(&config);
+
+    return config;
 }
