@@ -36,23 +36,24 @@ impl App {
         let minutes = self.current / 60;
         let seconds = self.current % 60;
 
-        for _ in 0..(y / 2) {
-            display_text.push('\n');
-        }
+        // for _ in 0..(y / 2) {
+        //     display_text.push('\n');
+        // }
 
-        for _ in 0..(x / 2) {
-            display_text.push(' ');
-        }
+        // for _ in 0..(x / 2) {
+        //     display_text.push(' ');
+        // }
 
         display_text.push_str(format!("{:02}:{:02}", minutes, seconds).as_str());
 
-        for _ in 0..(y / 2) {
-            display_text.push('\n');
-        }
+        // for _ in 0..(y / 2) {
+        //     display_text.push('\n');
+        // }
 
         // print!("{}[2J", 27 as char);
-
+        
         // Command::new("clear").spawn().unwrap();
+        print!("{}{}{}", termion::clear::All, termion::cursor::Goto(x/2, y/2), termion::cursor::Hide);
         println!("{}", display_text);
     }
 }
