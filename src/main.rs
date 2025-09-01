@@ -42,12 +42,12 @@ fn main() {
             }
             println!("Showing status")
         },
-        Some(Commands::Now { time_on }) => {
+        Some(Commands::Now { time_on, time_off }) => {
             let session = Session {
                 name: "$now".to_string(),
                 time: Time {
                     on: *time_on,
-                    off: None,
+                    off: *time_off,
                     freq: None,
                     then: None,
                 },

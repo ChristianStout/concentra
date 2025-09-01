@@ -33,8 +33,10 @@ pub enum Commands {
         #[arg(short, long)]
         show_icon: Option<bool>,
     },
+    /// Define a temporary workflow on call that will not be saved.
     Now {
         time_on: i32,
+        time_off: Option<i32>
     }
 }
 
