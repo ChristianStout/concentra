@@ -32,6 +32,9 @@ pub enum Commands {
     Status {
         #[arg(short, long)]
         show_icon: Option<bool>,
+    },
+    Now {
+        time_on: i32,
     }
 }
 

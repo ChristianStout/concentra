@@ -10,16 +10,21 @@ You can also just use it as a timer, if you would like
 
 At it's core, it is super simple.
 */
+mod session;
 mod config;
 mod runner;
 mod cli;
+mod app;
 
+use session::*;
 use config::*;
 use cli::*;
+use app::*;
 
 fn main() {
     let cli: Cli = get_cli();
-    let config = load_config();
+    let config: Config = load_config();
+    let mut app: App = App::new();
 
     match &cli.command {
         Some(Commands::Begin { name }) => {
@@ -36,6 +41,20 @@ fn main() {
                 println!()
             }
             println!("Showing status")
+        },
+        Some(Commands::Now { time_on }) => {
+            let session = Session {
+                name: "$now".to_string(),
+                time: Time {
+                    on: *time_on,
+                    off: None,
+                    freq: None,
+                    then: None,
+                },
+                freq: None,
+            };
+
+            app.run(&session);
         }
         None => {}
     }

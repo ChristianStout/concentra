@@ -3,6 +3,7 @@ use serde::Deserialize;
 use toml::Table;
 use std::fs::File;
 use std::io::prelude::*;
+use crate::session::*;
 
 #[derive(Deserialize, Debug)]
 pub struct Config {
@@ -11,21 +12,6 @@ pub struct Config {
     pub break_sound: String,
     pub end_sound: String,
     pub session: Option<Vec<Session>>
-}
-
-#[derive(Deserialize, Debug)]
-pub struct Session {
-    pub name: String,
-    pub time: Time,
-    pub freq: Option<i32>
-}
-
-#[derive(Deserialize, Debug)]
-pub struct Time {
-    pub on: i32,
-    pub off: Option<i32>,
-    pub freq: Option<i32>,
-    pub then: Option<Box<Time>>
 }
 
 pub fn load_config() -> Config {

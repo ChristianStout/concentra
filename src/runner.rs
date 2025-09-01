@@ -5,6 +5,7 @@ will play all of the sounds, including notification sounds and
 music.
 */
 use crate::config::*;
+use crate::session::*;
 use std::string::FromUtf8Error;
 use std::thread;
 use std::time::Duration;
